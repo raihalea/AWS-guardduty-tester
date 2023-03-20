@@ -5,15 +5,18 @@ from aws_cdk import (
 )
 from constructs import Construct
 
+from .base_stack import BaseStack
+from .ec2_stack import Ec2Stack
+
+
 class AwsGuarddutyTesterStack(Stack):
 
     def __init__(self, scope: Construct, construct_id: str, **kwargs) -> None:
         super().__init__(scope, construct_id, **kwargs)
 
-        # The code that defines your stack goes here
+        # VPC
+        base = BaseStack(self, "AwsGuarddutyTesterBaseStack")
 
-        # example resource
-        # queue = sqs.Queue(
-        #     self, "AwsGuarddutyTesterQueue",
-        #     visibility_timeout=Duration.seconds(300),
-        # )
+        # EC2
+        ec2 = Ec2Stack(self, "AwsGuarddutyTesterEc2Stack", base)
+        ec2.add_dependency(base)
