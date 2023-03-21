@@ -8,6 +8,7 @@ from aws_cdk import (
 from constructs import Construct
 import boto3
 
+
 class BaseStack(Stack):
     @property
     def vpc(self):

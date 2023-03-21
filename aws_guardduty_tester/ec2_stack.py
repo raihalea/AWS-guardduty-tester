@@ -5,8 +5,8 @@ from aws_cdk import (
 )
 from constructs import Construct
 
-class Ec2Stack(Stack):
 
+class Ec2Stack(Stack):
     def __init__(self, scope: Construct, construct_id: str, base, **kwargs) -> None:
         super().__init__(scope, construct_id, **kwargs)
 
@@ -18,14 +18,15 @@ class Ec2Stack(Stack):
             ),
             machine_image=ec2.AmazonLinuxImage(
                 generation=ec2.AmazonLinuxGeneration.AMAZON_LINUX_2,
-                kernel=ec2.AmazonLinuxKernel.KERNEL5_X
+                kernel=ec2.AmazonLinuxKernel.KERNEL5_X,
             ),
             vpc=base.vpc,
         )
 
-
-        ssmagent_url = "https://s3." + self.region +".amazonaws.com/amazon-ssm-" + self.region + "/latest/linux_amd64/amazon-ssm-agent.rpm"
-        userdata_txt = "sudo yum install -y " + ssmagent_url
+        ssmagent_url = "https://s3.{0}.amazonaws.com/amazon-ssm-{0}/latest/linux_amd64/amazon-ssm-agent.rpm".format(
+            self.region
+        )
+        userdata_txt = "sudo yum install -y {0}".format(ssmagent_url)
         instance.user_data.for_linux()
         instance.user_data.add_commands(userdata_txt)
         instance.user_data.add_commands("dig guarddutyc2activityb.com")
