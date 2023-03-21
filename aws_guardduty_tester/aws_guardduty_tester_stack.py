@@ -1,7 +1,5 @@
 from aws_cdk import (
-    # Duration,
     Stack,
-    # aws_sqs as sqs,
 )
 from constructs import Construct
 
@@ -11,7 +9,8 @@ from .ecs_ec2_stack import EcsEc2Stack
 from .ecs_fargate_stack import EcsFargateStack
 from .eks_ec2_stack import EksEc2Stack
 from .eks_fargate_stack import EksFargateStack
-
+from .cloud9 import Cloud9Stack
+from .apprunner import AppRunnerStack
 
 class AwsGuarddutyTesterStack(Stack):
     def __init__(self, scope: Construct, construct_id: str, **kwargs) -> None:
@@ -39,3 +38,11 @@ class AwsGuarddutyTesterStack(Stack):
         # EKS Fargate
         eks_fargate = EksFargateStack(self, "AwsGuarddutyTesterEKsFargateStack", base)
         eks_fargate.add_dependency(base)
+
+        # Cloud9
+        # dig guarddutyc2activityb.com
+        cloud9 = Cloud9Stack(self, "AwsGuarddutyTesterCloud9Stack", base)
+        eks_fargate.add_dependency(base)
+
+        # AppRunner
+        apprunenr = AppRunnerStack(self, "AwsGuarddutyTesterAppRunnerStack")

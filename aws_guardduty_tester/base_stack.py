@@ -1,5 +1,4 @@
 from aws_cdk import (
-    # Duration,
     Stack,
     aws_ec2 as ec2,
     aws_logs as logs,
@@ -29,7 +28,10 @@ class BaseStack(Stack):
             )
         else:
             self._log_group = logs.LogGroup(
-                self, "Log Group", log_group_name=log_group_name
+                self,
+                "Log Group",
+                log_group_name=log_group_name,
+                retention=logs.RetentionDays.ONE_DAY,
             )
 
         self.resolver_logging = route53resolver.CfnResolverQueryLoggingConfig(

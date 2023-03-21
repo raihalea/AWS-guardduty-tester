@@ -1,5 +1,4 @@
 from aws_cdk import (
-    # Duration,
     Stack,
     aws_eks as eks,
     aws_ecr_assets as assets,
