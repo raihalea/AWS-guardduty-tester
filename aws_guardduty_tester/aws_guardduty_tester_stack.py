@@ -13,6 +13,8 @@ from .cloud9 import Cloud9Stack
 from .apprunner import AppRunnerStack
 from .lambda_ import LambdaStack
 from .lambda_vpc import LambdaVpcStack
+from .lightsail import LightsailStack
+
 
 class AwsGuarddutyTesterStack(Stack):
     def __init__(self, scope: Construct, construct_id: str, **kwargs) -> None:
@@ -55,3 +57,6 @@ class AwsGuarddutyTesterStack(Stack):
         # Lambda VPC
         lambda_vpc = LambdaVpcStack(self, "AwsGuarddutyTesterLambdaVpcStack", base)
         lambda_vpc.add_dependency(base)
+
+        # Lightsail
+        lightsail = LightsailStack(self, "AwsGuarddutyTesterLightsailStack")
