@@ -12,6 +12,7 @@ from .eks_fargate_stack import EksFargateStack
 from .cloud9 import Cloud9Stack
 from .apprunner import AppRunnerStack
 from .lambda_ import LambdaStack
+from .lambda_vpc import LambdaVpcStack
 
 class AwsGuarddutyTesterStack(Stack):
     def __init__(self, scope: Construct, construct_id: str, **kwargs) -> None:
@@ -50,3 +51,7 @@ class AwsGuarddutyTesterStack(Stack):
 
         # Lambda
         lambda_ = LambdaStack(self, "AwsGuarddutyTesterLambdaStack")
+
+        # Lambda VPC
+        lambda_vpc = LambdaVpcStack(self, "AwsGuarddutyTesterLambdaVpcStack", base)
+        lambda_vpc.add_dependency(base)
