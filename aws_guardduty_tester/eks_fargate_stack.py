@@ -1,9 +1,5 @@
 from aws_cdk import (
-    # Duration,
     Stack,
-    CfnOutput,
-    aws_ec2 as ec2,
-    aws_ecs as ecs,
     aws_eks as eks,
     aws_ecr_assets as assets,
     aws_iam as iam,
@@ -40,5 +36,3 @@ class EksFargateStack(Stack):
                 "spec": {"containers": [{"name": "tester", "image": image_url}]},
             },
         )
-
-        CfnOutput(self, "EKSclusterRole", value=cluster.admin_role.role_name)
