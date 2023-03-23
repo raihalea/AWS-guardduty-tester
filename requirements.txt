@@ -1,6 +1,7 @@
 aws-cdk-lib==2.69.0
 constructs>=10.0.0,<11.0.0
-aws_cdk.aws_apprunner_alpha==2.69.0a0
+aws_cdk.aws_apprunner_alpha
+aws_cdk.aws_batch_alpha
 
 # Using for CWL and Cloud9 Owner
 boto3==1.26.94

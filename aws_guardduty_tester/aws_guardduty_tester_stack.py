@@ -14,6 +14,7 @@ from .apprunner import AppRunnerStack
 from .lambda_ import LambdaStack
 from .lambda_vpc import LambdaVpcStack
 from .lightsail import LightsailStack
+from .batch_ec2 import BatchEc2Stack
 
 
 class AwsGuarddutyTesterStack(Stack):
@@ -60,3 +61,7 @@ class AwsGuarddutyTesterStack(Stack):
 
         # Lightsail
         lightsail = LightsailStack(self, "AwsGuarddutyTesterLightsailStack")
+
+        # Batch EC2
+        batch_ec2 = BatchEc2Stack(self, "AwsGuarddutyTesterBatchEC2Stack", base)
+        batch_ec2.add_dependency(base)
