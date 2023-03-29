@@ -16,6 +16,7 @@ from .lambda_vpc import LambdaVpcStack
 from .lightsail import LightsailStack
 from .batch_ec2 import BatchEc2Stack
 from .batch_fargate import BatchFargateStack
+from .elasticbeanstalk import ElasticBeanstalkStack
 
 class AwsGuarddutyTesterStack(Stack):
     def __init__(self, scope: Construct, construct_id: str, **kwargs) -> None:
@@ -69,3 +70,6 @@ class AwsGuarddutyTesterStack(Stack):
         # Batch Fargate
         batch_fargate = BatchFargateStack(self, "BatchFargateStack", base)
         batch_fargate.add_dependency(base)
+
+        # Elastic Beanstalk
+        elasticbeanstalk = ElasticBeanstalkStack(self, "ElasticBeanstalkStack")
