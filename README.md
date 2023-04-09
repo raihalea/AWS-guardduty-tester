@@ -59,10 +59,12 @@ cdk deploy AwsGuarddutyTesterStack/EKsEc2Stack
 cdk deploy AwsGuarddutyTesterStack/EKsFargateStack
 ```
 ## Batch (EC2)
+Need to manually start the `job` to generate a DNS query.
 ```
 cdk deploy AwsGuarddutyTesterStack/BatchEC2Stack
 ```
 ## Batch (fargate)
+Need to manually start the `job` to generate a DNS query.
 ```
 cdk deploy AwsGuarddutyTesterStack/BatchFargateStack
 ```
@@ -75,10 +77,12 @@ cdk deploy AwsGuarddutyTesterStack/AppRunnerStack
 cdk deploy AwsGuarddutyTesterStack/ElasticBeanstalkStack
 ```
 ## Lambda
+Need to manually start `Lambda` to generate DNS queries.
 ```
 cdk deploy AwsGuarddutyTesterStack/LambdaStack
 ```
 ## Lambda VPC
+Need to manually start `Lambda` to generate DNS queries.
 ```
 cdk deploy AwsGuarddutyTesterStack/LambdaVpcStack
 ```
