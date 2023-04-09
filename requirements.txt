@@ -3,5 +3,5 @@ constructs>=10.0.0,<11.0.0
 aws_cdk.aws_apprunner_alpha
 aws_cdk.aws_batch_alpha
 
-# Using for CWL and Cloud9 Owner
+# Using for CWL and Cloud9
 boto3==1.26.94
