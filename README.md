@@ -35,9 +35,8 @@ AwsGuarddutyTesterStack/LambdaVpcStack
 ```
 
 ## Base
-```
-cdk deploy AwsGuarddutyTesterStack/BaseStack
-```
+This CDK application includes multiple stacks, and the `BaseStack` is intended for creating a VPC and is not meant for testing GuardDuty.
+`BaseStack` does not need to be explicitly deployed as its dependencies are resolved.
 
 ## EC2
 ```

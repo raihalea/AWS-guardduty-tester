@@ -4,8 +4,6 @@ from aws_cdk import (
     aws_apprunner_alpha as apprunner
 )
 from constructs import Construct
-import boto3
-
 
 class AppRunnerStack(Stack):
     def __init__(self, scope: Construct, construct_id: str, **kwargs) -> None:
