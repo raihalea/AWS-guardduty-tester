@@ -1,5 +1,5 @@
 
-# AWS GuardDuty CDK Test Project
+# AWS GuardDuty Tester
 
 This project is a CDK application for testing if AWS GuardDuty effectively detects security threats across several computing services.
 
