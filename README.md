@@ -35,7 +35,7 @@ AwsGuarddutyTesterStack/LambdaVpcStack
 ```
 
 ## Base
-This CDK application includes multiple stacks, and the `BaseStack` is intended for creating a VPC and is not meant for testing GuardDuty.
+This CDK application includes multiple stacks, and the `BaseStack` is intended for creating a VPC and is not meant for testing GuardDuty.It also sets up logging for Route53 VPC Resolver.
 `BaseStack` does not need to be explicitly deployed as its dependencies are resolved.
 
 ## EC2
@@ -89,3 +89,19 @@ cdk deploy AwsGuarddutyTesterStack/LambdaVpcStack
 ```
 cdk destroy --all
 ```
+
+# Result(2023/04/09)
+|   | Detect | First seen | Created at |
+| ----   |  ---- | ---- | ---- |
+| EC2  | Yes | 21:00:34 | 21:44:24 |
+| ECS(EC2) | Yes | 22:02:25 | 22:58:50 |
+| ECS(Fargate) | No | - | - |
+| EKS(EC2) | Yes | 00:08:54 | 00:57:43 |
+| EKS(Fargate) | No | - | - |
+| Batch(EC2) | Yes | 20:13:53 | 20:49:49 |
+| Batch(Fargate) | No | - | - |
+| App Runner | No | - | - |
+| Elastic Beanstkalk | Yes | 01:34:25 | 02:44:50 |
+| Lambda | No | - | - |
+| Lambda(VPC) | No | - | - |
+| Lightsail |  No | - | - |
