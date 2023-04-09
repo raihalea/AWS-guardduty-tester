@@ -3,7 +3,7 @@
 
 This project is a CDK application for testing if AWS GuardDuty effectively detects security threats across several computing services.
 
-This CDK application makes a DNS query to `guarddutyc2activityb.com` and confirms that it is detected as `Backdoor:EC2/C&CActivity.B!DNS`.
+Confirm that it is detected as Backdoor:EC2/C&CActivity.B!DNS by making a DNS query to guarddutyc2activityb.com.
 
 ## Getting Started
 ### Setup
